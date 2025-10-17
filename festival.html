@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>sapporo snow festival</title>
+<style>
+  body{
+    font-family:'pretendard',system-ui,Arial,Helvetica,sans-serif;
+    display:flex; flex-direction:column; align-items:center; padding:50px;
+  }
+  h2 { font-weight:600; font-size:71.5px; margin:0 0 20px; }
+
+  .box{
+    position:relative; overflow:hidden;
+    width:900px; height:600px;
+    border-radius:10px;
+  }
+  .box img{
+    width:100%; height:100%; display:block; object-fit:cover;
+  }
+  .overlay{
+    position:absolute; inset:0; margin:0;
+    display:flex; align-items:center; justify-content:center;
+    text-align: center;
+    color:#fff; font-size:24px; font-weight:300;
+    opacity:0;
+    background:rgba(0,0,0,0);
+    transition: opacity .4s ease, background-color .4s ease;
+
+    pointer-events:none; 
+  }
+  .box:hover .overlay{
+    opacity:1;                       
+    background:rgba(0,0,0,.45);    
+  }
+</style>
+</head>
+<body>
+  <h2>SAPPORO SNOW FESTIVAL</h2>
+
+  <div class="box">
+    <img src="./img/sapporo2.webp" alt="Sapporo Snow Festival" />
+    <p class="overlay">2026.02.04(WED) - 02.11(SAT) <br/> 
+<br/> <br/> 
+커뮤니티 돔 쓰도메(삿포로시 히가시구 사카에마치 885-1)
+<br/> 
+스스키노 메인 스트리트(삿포로시 주오구 미나미 4조~미나미 7조 역 주변)</p>
+  </div>
+  
+</body>
+</html>
