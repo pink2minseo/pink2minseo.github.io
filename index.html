@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>sapporo snow festival</title>
+<style>
+  body{
+    font-family:'pretendard',system-ui,Arial,Helvetica,sans-serif;
+    display:flex; flex-direction:column; align-items:center; padding:50px 0;
+    justify-content: center; 
+    min-height: 100vh; 
+  }
+
+  .container{
+    width:900px;         
+    display:flex;
+    flex-direction:column;
+    gap: 24px;
+  }
+
+  h2 { font-weight:600; font-size:70px; margin:0 0 20px; }
+  h3 { font-weight:400; font-size:24px; text-align: center;}
+  li { list-style-type: circle; font-weight:300; font-size:22px;}
+
+  .box{
+    position:relative; overflow:hidden;
+    width:900px; height:600px;
+    border-radius:10px;
+  }
+
+  .box img{
+    width:100%; height:100%; display:block; object-fit:cover;
+  }
+
+  .overlay{
+    position:absolute; inset:0; margin:0;
+    display:flex; align-items:center; justify-content:center;
+    text-align: center;
+    color:#fff; font-size:20px; font-weight:300; line-height: 1.6;
+    opacity:0;
+    background:rgba(0,0,0,0);
+    transition: opacity .4s ease, background-color .4s ease;
+  }
+
+  .box:hover .overlay{
+    opacity:1;                       
+    background:rgba(0,0,0,.45);    
+  }
+
+  .box2 {             
+    min-height:400px;
+    background-color:rgb(35, 35, 35);
+    color: #fff;
+    border-radius:10px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:90px 120px;
+    margin-top:40px;
+    margin-bottom:40px;
+  }
+
+   .box3 {             
+    min-height:400px;
+    background-color:rgb(35, 35, 35);
+    color: #fff;
+    border-radius:10px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:90px 147px;
+    margin-top:40px;
+    margin-bottom:40px;
+  }
+  
+</style>
+</head>
+<body>
+  <h2>JAPANESE WINTER TRAVEL</h2>
+
+  <div class="box">
+    <img src="./img/sapporo2.webp" alt="Sapporo Snow Festival" />
+    <p class="overlay">삿포로 눈 축제는 일본 홋카이도 삿포로시에서 매년 2월에 열리는 겨울 축제로,<br/>  
+        거대한 눈과 얼음 조각 전시와 다양한 눈놀이 체험이 펼쳐지는 세계적인 축제입니다.<br/> 
+    </p>
+  </div>
+
+  <div class="box2">
+  <h3>SAPPORO SNOW FESTIVAL</h3>
+        <ul>
+            <li>2026.02.04(WED) - 02.11(TUE)</li><br/>
+            <li>커뮤니티 돔 쓰도메(삿포로시 히가시구 사카에마치 885-1)</li><br/>
+            <li>스스키노 메인 스트리트(삿포로시 주오구 미나미 4조~미나미 7조 역 주변)</li>
+        </ul>
+  </div>
+
+     <div class="box">
+    <img src="./img/sapporo1.jpg" alt="Sapporo Snow Festival" />
+    <p class="overlay">치치부 요마츠리는 일본 사이타마현 치치부시에서 매년 12월 2일과 3일에 열리는 밤 축제입니다. <br/>  
+        ‘치치부 신사’에서 주관하며, 일본의 3대 히키야마(끌차) 축제 중 하나로 꼽힐 정도로 유명합니다.<br/>  
+        </p>
+        </div>
+        
+    <div class="box3">
+    <h3>CHICHIBU NIGHT FESTIVAL</h3>
+        <ul>
+            <li>2025.12.02(WED) - 12.03(TUR)</li><br/>
+            <li>사이타마현, 치치부시, 치치부 신사</li><br/>
+            <li>12월 2일(宵宮, 요이미야 / 전야제), 12월 3일(大祭, 타이사이 / 본제)</li>
+        </ul>
+  </div>
+
+
+</body>
+</html>
