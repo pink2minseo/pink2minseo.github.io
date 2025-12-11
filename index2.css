@@ -1,0 +1,310 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css");
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-jp.css");
+
+/* 공통 리셋 */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: auto;      /* 스크롤 가능 */
+  background: #fff;
+  font-family: "Inter", sans-serif;
+  color: #111;
+    overflow: hidden;
+  
+
+}
+
+/* 전체 레이아웃 */
+.page {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* 왼쪽 네비 */
+.side-nav {
+  padding: 24px 0 24px 28px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-family: "Pretendard Variable", "Inter", sans-serif;
+}
+
+.side-nav .logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+.logo-img {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+  display: block;
+}
+
+.side-nav nav {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 100%;
+  padding-left: 10px;
+}
+
+.side-nav a {
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: -0.28px;
+  color: #111;
+  padding: 4px 12px;
+  border-radius: 8px;
+  transition: background 0.2s ease, color 0.2s ease;
+  font-family: "Pretendard Variable", "Inter", sans-serif;
+  font-variation-settings: "wght" 600;
+  font-weight: 600;
+   padding-left: 0px;
+}
+
+.side-nav a:hover {
+  color: #ff007a;
+}
+
+/* 오른쪽 컨텐츠 */
+.content {
+  flex: 1;
+  padding: 40px 40px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  position: relative;
+  padding-top: 80px;
+}
+
+/* 로고 영역 */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.wordmark {
+  width: min(840px, 92vw);
+  height: auto;
+  display: block;
+}
+
+/* ========== 분홍 원 카드 (반원 느낌) ========== */
+.card {
+  width: min(1400px, 140vw, 120vh);
+  aspect-ratio: 1 / 1;
+  background: #FF0084;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  color: #fff;
+  text-align: center;
+
+  margin-top: 100px;        p  /* 로고 밑으로 떨어뜨리기 */
+  transform: translateY(50%); /* 밑으로 내려서 화면에 반쯤만 보이게 */
+  padding-top: 60px;
+
+    box-shadow: 0 0 0 0 rgba(255, 0, 132, 0.0);
+  animation: neonGlow 3s ease-in-out infinite;
+}
+
+@keyframes neonGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 0, 132, 0.0);
+  }
+  50% {
+    box-shadow: 0 0 55px 25px rgba(255, 0, 132, 0.35);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 0, 132, 0.0);
+  }
+}
+
+.pill {
+  background: #FF59AF;
+  color: #FFDEEF;
+  padding: 8px 20px;
+  border-radius: 999px;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.emoji-wrap {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.emoji {
+  font-size: 132px;
+  font-weight: 800;
+  line-height: 1;
+  color: #111;
+  font-family: "Pretendard JP", "Pretendard Variable", "Inter", sans-serif;
+}
+
+.reading {
+  font-size: 30px;
+  color: rgba(17, 17, 17, 0.45);
+  font-family: "Pretendard JP", "Pretendard Variable", "Inter", sans-serif;
+}
+
+.meaning {
+  font-size: 38px;
+  color: #111;
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  font-weight: 600;
+}
+
+/* 높이 작은 화면에서 살짝 조정 */
+@media (max-height: 900px) {
+  .card {
+    transform: translateY(10%);
+    gap: 28px;
+  }
+}
+
+/* ========== 푸터 ========== */
+.site-footer {
+  width: 100%;
+  margin-top: 60px;
+  background: #2a2a2a;
+  z-index: 1000;
+
+    height: 1000px;
+
+
+  position: relative;    /* 기준: content 내부 */
+  margin-top: -840px;    /* ❗ 여기 숫자가 푸터가 원에 얼마나 겹치는지 조절함 */
+  padding-top: 40px;     /* 자연스럽게 보이도록 패딩 */  
+}
+
+.footer-inner {
+  margin: 0 auto;
+  padding: 12px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Pretendard Variable", "Inter", sans-serif;
+  font-size: 11px;
+  color: #777;
+  margin-left: 0px;
+}
+
+.footer-left {
+  font-weight: 600;
+  letter-spacing: -0.3px;
+      font-size: 14px;
+}
+
+.footer-nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+      font-size: 14px;
+}
+
+.footer-nav a {
+  text-decoration: none;
+  color: #777;
+  font-weight: 500;
+}
+
+.footer-nav a:hover {
+  color: #111;
+}
+
+.footer-sep {
+  color: #535353;
+}
+
+/* 반응형 푸터 */
+@media (max-width: 640px) {
+  .footer-inner {
+    padding: 10px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}
+
+/* ========== 반응형 레이아웃 ========== */
+
+/* 태블릿 가로 정도 – 왼쪽 네비/오른쪽 비율 조정 */
+@media (max-width: 1024px) {
+  .side-nav {
+    width: 20%;
+    padding-left: 20px;
+  }
+  .content {
+    padding: 32px 24px 72px;
+  }
+  .wordmark {
+    width: min(600px, 80vw);
+  }
+  .card {
+    width: min(800px, 130vw, 110vh);
+    transform: translateY(10%);
+  }
+}
+
+/* 아주 작은 모바일 – 네비 위로 올리고, 원 숨김 */
+@media (max-width: 640px) {
+  .page {
+    flex-direction: column;
+  }
+
+  .side-nav {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+  }
+
+  .side-nav nav {
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .side-nav a {
+    font-size: 11px;
+    padding: 4px 8px;
+  }
+
+  .content {
+    padding: 24px 16px 72px;
+  }
+
+  .wordmark {
+    width: min(90vw, 480px);
+  }
+}
+
+/* 진짜 작은 모바일 – 원 아예 제거 */

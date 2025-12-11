@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OTAKU/JP WORDS – SLANG QUIZ</title>
+  <link rel="stylesheet" href="QUIZ.css">
+</head>
+<body>
+  <div class="page">
+    <!-- 왼쪽 사이드 네비 -->
+     <aside class="side-nav">
+        <a href="index.html" class="logo-link">
+      <div class="logo"><img src="img/logo.png" class="logo-img"></div></a>
+      <nav>
+        <a href="SLANG.html">SLANG</a>
+        <a href="DAILY.html">DAILY</a>
+        <a href="BOOKMARK.html">BOOKMARK</a>
+        <a href="community.html">COMMUNITY</a>
+        <a href="QUIZ.html">QUIZ</a>
+      </nav>
+    <div class="h1"> <h1>오늘의 퀴즈</h1> </div>
+    </aside>
+
+    <!-- 오른쪽 퀴즈 영역 -->
+    <section class="right-section">
+
+      <div class="quiz-wrapper">
+        <!-- 왼쪽 핑크 카드 -->
+        <div class="quiz-card">
+          <div id="quiz-reading" class="quiz-reading">くさ</div>
+          <div id="quiz-kanji" class="quiz-kanji">草</div>
+        </div>
+
+        <!-- 오른쪽 문제 패널 -->
+        <div class="quiz-panel">
+          <div id="quiz-round" class="quiz-round">ROUND 1</div>
+
+          <div class="quiz-question">
+            <span class="quiz-q-label">Q.</span>
+            <span id="quiz-question-text">다음 중 草의 의미를 고르세요</span>
+          </div>
+
+          <div class="quiz-options">
+            <button class="quiz-option" data-index="0">
+              <span class="quiz-option-label">A.</span>
+              <span class="quiz-option-text">슬프다, 참을 수 없는</span>
+            </button>
+            <button class="quiz-option" data-index="1">
+              <span class="quiz-option-label">B.</span>
+              <span class="quiz-option-text">미쳤다, 대박</span>
+            </button>
+            <button class="quiz-option" data-index="2">
+              <span class="quiz-option-label">C.</span>
+              <span class="quiz-option-text">웃기다, ㅋㅋ</span>
+            </button>
+            <button class="quiz-option" data-index="3">
+              <span class="quiz-option-label">D.</span>
+              <span class="quiz-option-text">빡친다, 대폭소</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 하단 도트 -->
+      <div class="quiz-dots" id="quiz-dots">
+        <span class="quiz-dot active"></span>
+        <span class="quiz-dot"></span>
+        <span class="quiz-dot"></span>
+        <span class="quiz-dot"></span>
+      </div>
+    </section>
+  </div>
+
+  <!-- 퀴즈 JS -->
+  <script>
+    const quizData = [
+      {
+        kanji: "草",
+        reading: "くさ",
+        question: "다음 중 草의 의미를 고르세요",
+        options: [
+          "슬프다, 참을 수 없는",
+          "미쳤다, 대박",
+          "웃기다, ㅋㅋ",
+          "빡친다, 대폭소"
+        ],
+        answerIndex: 2
+      },
+      {
+        kanji: "尊い",
+        reading: "とうとい",
+        question: "다음 중 尊い의 의미를 고르세요",
+        options: [
+          "죽이고 싶다",
+          "귀하고 감동스럽다",
+          "완전 노잼",
+          "창피하다"
+        ],
+        answerIndex: 1
+      },
+      {
+        kanji: "沼",
+        reading: "ぬま",
+        question: "다음 중 沼의 의미를 고르세요",
+        options: [
+          "극혐이다",
+          "빠져나오기 쉬운 곳",
+          "덕질沼, 헤어나오기 힘든 상태",
+          "눈물"
+        ],
+        answerIndex: 2
+      },
+      {
+        kanji: "ガチ",
+        reading: "がち",
+        question: "다음 중 ガチ의 의미를 고르세요",
+        options: [
+          "진짜, 레알",
+          "약간?",
+          "아무래도",
+          "대충"
+        ],
+        answerIndex: 0
+      }
+    ];
+
+    let currentIndex = 0;
+    let isLocked = false;
+
+    const kanjiEl = document.getElementById("quiz-kanji");
+    const readingEl = document.getElementById("quiz-reading");
+    const roundEl = document.getElementById("quiz-round");
+    const questionTextEl = document.getElementById("quiz-question-text");
+    const optionButtons = document.querySelectorAll(".quiz-option");
+    const dotsContainer = document.getElementById("quiz-dots");
+    let dots = dotsContainer.querySelectorAll(".quiz-dot");
+
+    function renderQuestion(index) {
+      const q = quizData[index];
+      kanjiEl.textContent = q.kanji;
+      readingEl.textContent = q.reading;
+      roundEl.textContent = `ROUND ${index + 1}`;
+      questionTextEl.textContent = q.question;
+
+      optionButtons.forEach((btn, i) => {
+        const textSpan = btn.querySelector(".quiz-option-text");
+        textSpan.textContent = q.options[i];
+        btn.classList.remove("correct", "wrong", "selected");
+      });
+
+      updateDots(index);
+    }
+
+    function updateDots(activeIndex) {
+      if (dots.length !== quizData.length) {
+        dotsContainer.innerHTML = "";
+        quizData.forEach(() => {
+          const span = document.createElement("span");
+          span.className = "quiz-dot";
+          dotsContainer.appendChild(span);
+        });
+        dots = dotsContainer.querySelectorAll(".quiz-dot");
+      }
+
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === activeIndex);
+      });
+    }
+
+    optionButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        if (isLocked) return;
+        isLocked = true;
+
+        const selectedIndex = Number(btn.dataset.index);
+        const correctIndex = quizData[currentIndex].answerIndex;
+
+        optionButtons.forEach((b) => {
+          b.classList.remove("correct", "wrong", "selected");
+        });
+
+        btn.classList.add("selected");
+        optionButtons[correctIndex].classList.add("correct");
+
+        if (selectedIndex !== correctIndex) {
+          btn.classList.add("wrong");
+        }
+
+        setTimeout(() => {
+          currentIndex++;
+          if (currentIndex >= quizData.length) {
+            currentIndex = 0; // 마지막 다음엔 다시 처음으로
+          }
+          renderQuestion(currentIndex);
+          isLocked = false;
+        }, 900);
+      });
+    });
+
+    renderQuestion(currentIndex);
+  </script>
+</body>
+</html>
