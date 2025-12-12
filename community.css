@@ -651,3 +651,13 @@ body.modal-open {
     border-bottom: 1px solid #f0f0f0;
   }
 }
+
+@media (max-width: 640px) {
+    .side-nav {
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 16px;
+    }
+}
