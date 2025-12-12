@@ -469,7 +469,7 @@ body.modal-open {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .page {
     flex-direction: column;
   }
